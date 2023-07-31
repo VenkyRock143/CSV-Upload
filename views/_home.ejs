@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="/css/home.css">
+<br>
+<div class="upload-form w-25 shadow">
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <br>
+        <input class="choose-file" type="file" name="csvfile" accept=".csv" required>
+        <br>
+        <br>
+        <button id="btn" type="submit">Upload</button>
+        <br>
+    </form>
+</div>
+<br>
+<div class="csvArray w-50">
+    <h1 style="text-align: center;">Uploaded CSV Files</h1>
+    <br>
+    <% if(csvFiles.length > 0){%> 
+        <ul class="CSVList">
+           <% csvFiles.forEach((filename)=> {%>
+                <li id="CSVFile"><%= filename %>
+                <div class="btns">
+                    <form action="/viewCSV/<%=filename%>" method="get" id="view-btn">
+                        <button class="btn btn-primary" type="submit">View</button>
+                    </form>
+                    &nbsp
+                    <form action="/deleteCSV/<%=filename%>" method="POST" id="delete-btn">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+                </div>
+                
+                </li>
+                <hr>
+           <%})%>
+        </ul>
+    <%}else{%>
+        <p>No uploaded CSV files!</p>
+    <%}%>
+    <br>
+</div>
+<script src="/js/home.js"></script> 
