@@ -4,6 +4,7 @@ const port = 3000;
 const multer = require('multer')
 const expressLayouts = require('express-ejs-layouts');
 const connectDB = require('./config/mongoose');
+require('dotenv').config();
 
 app.use(express.urlencoded({extended:true}));
 
