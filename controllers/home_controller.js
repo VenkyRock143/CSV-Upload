@@ -3,14 +3,14 @@ const fs = require('fs');
 const csv = require('csv-parser');
 const path = require('path');
 
-
+// This code is used to store the csv files in the form of array
 module.exports.csvArray = async function (req, res) {
   try {
-      // Check if the uploaded file is a CSV file
+      // Checking if the uploaded file is a CSV file
       if (!req.file || !req.file.originalname.toLowerCase().endsWith('.csv')) {
-        return res.status(400).send('Only CSV files are allowed!');
+        return res.status(400).send('Upload only CSV Files');
       }
-    //parser the uploaded csv file and store it in array
+    // created a array to uploaded csv file and store
     const results = [];
     fs.createReadStream(req.file.path)
       .pipe(csv())
@@ -18,7 +18,7 @@ module.exports.csvArray = async function (req, res) {
         results.push(data);
       })
       .on('end', async () => {
-        //save csv data to db
+        //This code is used to store data in db
         if (req.file) {
           const oldPath = req.file.path;
           const newPath = path.join(__dirname, '../uploads', req.file.originalname);
@@ -28,8 +28,7 @@ module.exports.csvArray = async function (req, res) {
           const csvData = new csvFile({
             filename: req.file.originalname,
             header_row: results[0],
-            data_rows: results.slice(1),
-            // path: newPath
+            data_rows: results.slice(1)
           });
           await csvData.save();
         } else {
@@ -38,15 +37,13 @@ module.exports.csvArray = async function (req, res) {
 
         return res.redirect('/');
       });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({ message: 'Internal server error' });
+  } catch (error) {
+    console.log("error in creating array",error);
+    return res.status(500).json({ message: 'Internal server error' });
   }
-
 }
 
-
-
+// This code is used display the homepage 
 module.exports.home = async function (req, res) {
   try {
     const csvFiles = await csvFile.find({});
@@ -58,6 +55,7 @@ module.exports.home = async function (req, res) {
   }
 }
 
+// This code is used to delete csv files from the csvArray 
 module.exports.deleteCSV = async function (req, res) {
   try {
     const deleteFile = req.params.filename;

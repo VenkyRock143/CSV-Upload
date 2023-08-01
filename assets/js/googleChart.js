@@ -4,7 +4,7 @@
     data.addColumn('string', '<%= fileData.header_row[0] %>');
     data.addColumn('number', fileData.header_row[selectedColumn]);
 
-    // Add data rows to the table
+    // Adding data rows to the table
     <% fileData.data_rows.forEach(function(row) { %>
       data.addRow(['<%= row[fileData.header_row[0]] %>', <%= row[fileData.header_row[selectedColumn]] %>]);
     <% }); %>
@@ -26,7 +26,7 @@
     data.addColumn('string', '<%= cell %>');
     <% }); %>
 
-    // Add data rows to the table
+    // Adding data rows to the table
     <% fileData.data_rows.forEach(function(row) { %>
     data.addRow(['<% Object.values(row).forEach(function(cell) { %><%= cell %><% }); %>']);
     <% }); %>
@@ -35,11 +35,11 @@
     table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
   }
 
-  // Load Google Charts and draw the table and chart
+  // Loading Google Charts to draw the table and chart
   google.charts.load('current', {'packages':['corechart', 'table']});
   google.charts.setOnLoadCallback(drawTable);
 
-  // Check if there's a selected column index in the URL query parameters and draw the chart
+  // Checking if there's a selected column index in the URL query parameters and draw the chart
   const urlParams = new URLSearchParams(window.location.search);
   const selectedColumnIndex = urlParams.get('column');
   if (selectedColumnIndex !== null) {
