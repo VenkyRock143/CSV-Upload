@@ -10,14 +10,14 @@ module.exports.viewCSV = async function (req, res) {
       return res.status(404).send('File not found');
     }
 
-    // Read CSV file contents
+    // Read CSV file contents using Promise
     const uploadsPath = path.join(__dirname, '../uploads');
     const fileData = await new Promise((resolve, reject) => {
       fs.readFile(path.join(uploadsPath, csvFile.filename), 'utf8', (err, data) => {
         if (err) {
           reject(err);
         } else {
-          // Parse the CSV data and send it to the view
+          // Parsing the CSV data and sending it to the view
           const rows = data.trim().split('\n');
           const header_row = rows[0].split(',');
           const data_rows = rows.slice(1).map((row) => {
@@ -32,9 +32,9 @@ module.exports.viewCSV = async function (req, res) {
       });
     });
 
-    // Get the selected column index from the query parameter
+    // To get the selected column index from the query parameter
     const selectedColumnIndex = req.query.column;
-    console.log(selectedColumnIndex); // For debugging purposes
+    console.log(selectedColumnIndex);
 
     res.render('_ViewCSV', {
       fileData,
