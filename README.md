@@ -47,9 +47,7 @@ CSV Upload
 
 2.By using upload button we can upload the csv files.
 
-3.After the files are uploaded they are stored in an array with filename along with view and delete buttons.
-
-  View button is used to render the csv file and delete button will delete the csv file from the array using filename.
+3.After the files are uploaded they are stored in an array with filename along with view and delete buttons. View button is used to render the csv file and delete button will delete the csv file from the array using filename.
   
 4.By using router view button will render the _viewCSV.ejs file with csv data in the form of table data.
 
@@ -60,8 +58,8 @@ CSV Upload
 7.By using accept=".csv" we can only accept csv files in frontend.
 
 Approach
-1.created a form to only accept .csv files and upload them in array.When i click on upload it will perform a action '/upload'
-  and csvArray is created using controller and data is stored in database using mongodb with model to fetch particular files.
+
+1.created a form to only accept .csv files and upload them in array.When i click on upload it will perform a action '/upload' and csvArray is created using controller and data is stored in database using mongodb with model to fetch particular files.
   
 2.In the csvArray along with file name we have two buttons view and delete.when view is clicked a new ejs file will render using router and controller.when delete is clicked with the help of filename csv file is deleted.
   
