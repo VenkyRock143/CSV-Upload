@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/css/home.css">
 <br>
-<div class="container upload-form w-25 shadow">
+<div class="container upload-form w-50 shadow">
     <form action="/upload" method="post" enctype="multipart/form-data">
         <br>
         <input class="choose-file" type="file" name="csvfile" accept=".csv" required>
@@ -11,7 +11,7 @@
     </form>
 </div>
 <br>
-<div class="container csvArray w-50 shadow">
+<div class="container csvArray w-75 shadow">
     <h1 style="text-align: center;">Uploaded CSV Files</h1>
     <br>
     <% if(csvFiles.length > 0){%> 
