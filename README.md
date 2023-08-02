@@ -3,44 +3,35 @@ CSV View
 Link:- https://csv-upload-9txt.onrender.com
 
 By using this app we can upload any number of .csv files and we can view them.
-
-CSV Upload
-│
-├── assets
-│   ├── css
-│   │   ├── header.css
-│   │   └── home.css
-│   └── js
-│       ├── search.js
-│       └── sorting.js
-│
-├── config
-│   ├── mongoose.js
-│   └── multer.js
-│
-├── controllers
-│   ├── csvView_controller.js
-│   └── home_controller.js
-│
-├── models
-│   └── model.js
-│
-├── routes
-│   └── index.js
-│
-├── uploads
-│
-├── views
-│   ├── _header.ejs
-│   ├── _home.ejs
-│   ├── _ViewCSV.ejs
-│   └── layout.ejs
-│
-├── index.js
-├── .gitignore
-├── package.json
-└── README.md
-
+folder structure
+#CSV Upload
+-assets
+  -css
+    -header.css
+    -home.css
+  -js
+    -search.js
+    -sorting.js
+-config/
+  -mongoose.js
+  -multer.js
+-controllers
+  -csvView_controller.js
+  -home_controller.js
+-models
+  -model.js
+-routes
+  -index.js
+-uploads
+-views
+  -_header.ejs
+  -_home.ejs
+  -_ViewCSV.ejs
+  -layout.ejs
+-index.js
+-.gitignore
+-package.json
+-README.md 
 
 1.By using upload form we can upload .csv files to an array which store the csv files in an array.
 2.By using upload button we can upload the csv files.
