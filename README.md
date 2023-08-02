@@ -1,7 +1,6 @@
 # CSV-Upload
 CSV View
 Link:- https://csv-upload-9txt.onrender.com
-
 By using this app we can upload any number of .csv files and we can view them.
 folder structure
 #CSV Upload
