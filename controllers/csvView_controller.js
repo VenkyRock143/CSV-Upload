@@ -32,8 +32,6 @@ module.exports.viewCSV = async function (req, res) {
 
     // To get the selected column index from the query parameter
     const selectedColumnIndex = req.query.column;
-    console.log(selectedColumnIndex); // For debugging purposes
-
     res.render('_ViewCSV', {
       fileData,
       title: 'CSV file',
