@@ -61,4 +61,4 @@ Approach
 2.In the csvArray along with file name we have two buttons view and delete.when view is clicked a new ejs file will render using router and controller.when delete is clicked with the help of filename csv file is deleted.
   
 3.In _viewCSV at the top filename is render then a search box to fetch required words and display them.then sort function to sort the table 
-  in asc or desc order.Then the csv table is render with the headers which are  dynamically gerented.
+  in asc or desc order.Then the csv table is render with the headers which are  dynamically generated.
