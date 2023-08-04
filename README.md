@@ -3,6 +3,7 @@ By using this app we can upload any number of .csv files and we can view them.
 
 folder structure
 CSV Upload
+```sh
 │
 ├── assets
 │   ├── css
@@ -38,6 +39,7 @@ CSV Upload
 ├── .gitignore
 ├── package.json
 └── README.md
+```
 
 
 1.By using upload form we can upload .csv files to an array which store the csv files in an array.
