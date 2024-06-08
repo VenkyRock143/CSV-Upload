@@ -1,9 +1,21 @@
-# CSV-Upload
-By using this app we can upload any number of .csv files and we can view them.
-Link:- https://csv-upload-9txt.onrender.com
+# CSV Upload
 
-folder structure
-CSV Upload
+This application allows users to upload any number of .csv files and view them.
+
+**Link:** [CSV Upload App](https://csv-upload-9txt.onrender.com)
+
+## Overview
+
+By using this app, users can perform the following actions:
+
+1. Upload .csv files via a form, which are then stored in an array.
+2. View and delete uploaded csv files.
+3. Dynamically generate different csv files with different column headers.
+4. Upload csv files with the delimiter as comma ','.
+5. Accept only .csv files in the frontend using `accept=".csv"`.
+
+## Folder Structure
+
 ```sh
 │
 ├── assets
@@ -42,26 +54,10 @@ CSV Upload
 └── README.md
 ```
 
+## Approach
 
-1.By using upload form we can upload .csv files to an array which store the csv files in an array.
+1. Created a form to only accept .csv files and upload them into an array.
+2. When the upload button is clicked, it performs an action '/upload' and stores csvArray using a controller, and data is stored in the database using MongoDB with a model to fetch particular files.
+3. In the csvArray, along with the file name, there are view and delete buttons. When view is clicked, a new ejs file is rendered using router and controller. When delete is clicked with the help of filename, the csv file is deleted.
+4. In _viewCSV, the filename is rendered at the top, followed by a search box to fetch required words and display them. Then, a sort function is applied to sort the table in ascending or descending order. Finally, the csv table is rendered with dynamically generated headers.
 
-2.By using upload button we can upload the csv files.
-
-3.After the files are uploaded they are stored in an array with filename along with view and delete buttons. View button is used to render the csv file and delete button will delete the csv file from the array using filename.
-  
-4.By using router view button will render the _viewCSV.ejs file with csv data in the form of table data.
-
-5.Here different csv files with different column headers are dynamically generated.
-
-6.csv files are uploaded into system with delimiter as comma','.
-
-7.By using accept=".csv" we can only accept csv files in frontend.
-
-Approach
-
-1.created a form to only accept .csv files and upload them in array.When i click on upload it will perform a action '/upload' and csvArray is created using controller and data is stored in database using mongodb with model to fetch particular files.
-  
-2.In the csvArray along with file name we have two buttons view and delete.when view is clicked a new ejs file will render using router and controller.when delete is clicked with the help of filename csv file is deleted.
-  
-3.In _viewCSV at the top filename is render then a search box to fetch required words and display them.then sort function to sort the table 
-  in asc or desc order.Then the csv table is render with the headers which are  dynamically generated.
